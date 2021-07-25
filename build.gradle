@@ -16,7 +16,7 @@
 
 //----------------------START "DO NOT MODIFY" SECTION------------------------------
 defaultTasks 'assemble'
-apply plugin: 'java-gradle-plugin'
+apply plugin: 'groovy-gradle-plugin'
 apply plugin: 'eclipse'
 def ghidraInstallDir
 

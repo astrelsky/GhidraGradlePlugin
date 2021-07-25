@@ -16,12 +16,14 @@ import org.gradle.plugins.ide.eclipse.model.Library;
 
 public class GhidraPlugin implements Plugin<Project> {
 
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void apply(Project project) {
 		try {
 			ClassLoader cl = getClass().getClassLoader();
 			Method m = cl.getClass().getDeclaredMethod("addURL", URL.class);
 			m.invoke(cl, PluginUtils.getUtilityURL());
 			run(project);
+			project.getTasks().register("vscode", (Class) cl.loadClass("ghidraplugin.tasks.VscodeSetupTask"));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
