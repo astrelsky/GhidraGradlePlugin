@@ -32,7 +32,9 @@ class VscodeSetupTask extends DefaultTask {
 				]
 			]
 		]
-		new File(project.projectDir, ".vscode/launch.json").write(JsonOutput.prettyPrint(JsonOutput.toJson(launchers)))
+		File fd = new File(project.projectDir, ".vscode/launch.json")
+		fd.getParentFile().mkdirs()
+		fd.write(JsonOutput.prettyPrint(JsonOutput.toJson(launchers)))
 	}
 
 	private static String getPlatformArgs() {
