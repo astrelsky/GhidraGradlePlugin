@@ -1,4 +1,4 @@
-
+This is abandonware. It had been made public and archived for reference. I do not recall how functional it was.
 # Usage Example
 
 ```gradle
